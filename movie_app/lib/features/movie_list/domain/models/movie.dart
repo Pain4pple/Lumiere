@@ -12,7 +12,7 @@ _________________________________________________
   > String posterPath;
   > bool video;
   > DateTime releaseDate;
-  > Array genre;
+  > List<Genre> genres;
 
 _________________________________________________
 
@@ -28,7 +28,7 @@ class Movie {
   final String posterPath;
   final bool video;
   final DateTime releaseDate;
-  final List<Genre> genre;
+  final List<Genre> genres;
 
   Movie({
     required this.id,
@@ -39,6 +39,6 @@ class Movie {
     required this.posterPath,
     required this.video,
     required this.releaseDate,
-    required this.genre,
+    required this.genres,
   });
 }
