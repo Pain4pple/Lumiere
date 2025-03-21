@@ -17,9 +17,10 @@ _________________________________________________
 _________________________________________________
 
  */
-import 'package:movie_app/features/movie_list/domain/models/genre.dart';
 
-class Movie {
+import 'package:movie_app/core/domain/models/genre.dart';
+
+class MovieDetails {
   final int id;
   final int popularity;
   final String title;
@@ -30,7 +31,7 @@ class Movie {
   final DateTime releaseDate;
   final List<Genre> genres;
 
-  Movie({
+  MovieDetails({
     required this.id,
     required this.popularity,
     required this.title,
