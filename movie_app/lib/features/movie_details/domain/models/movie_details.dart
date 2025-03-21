@@ -12,14 +12,15 @@ _________________________________________________
   > String posterPath;
   > bool video;
   > DateTime releaseDate;
-  > Array genre;
+  > List<Genre> genres;
 
 _________________________________________________
 
  */
-import 'package:movie_app/features/movie_list/domain/models/genre.dart';
 
-class Movie {
+import 'package:movie_app/core/domain/models/genre.dart';
+
+class MovieDetails {
   final int id;
   final int popularity;
   final String title;
@@ -28,9 +29,9 @@ class Movie {
   final String posterPath;
   final bool video;
   final DateTime releaseDate;
-  final List<Genre> genre;
+  final List<Genre> genres;
 
-  Movie({
+  MovieDetails({
     required this.id,
     required this.popularity,
     required this.title,
@@ -39,6 +40,6 @@ class Movie {
     required this.posterPath,
     required this.video,
     required this.releaseDate,
-    required this.genre,
+    required this.genres,
   });
 }
