@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/features/movie_list/presentation/blocs/movie_lists_bloc.dart';
-import 'package:movie_app/features/movie_list/presentation/blocs/movie_lists_event.dart';
 import 'package:movie_app/features/movie_list/presentation/blocs/movie_lists_state.dart';
 import 'package:movie_app/features/movie_list/presentation/widgets/movie_card.dart';
 

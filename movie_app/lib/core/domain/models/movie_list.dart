@@ -18,8 +18,6 @@ _________________________________________________
 
  */
 
-import 'package:equatable/equatable.dart';
-
 class MovieList {
   final List<MovieEntity> movies;
   // final List<DateEntity> dates;
@@ -28,9 +26,6 @@ class MovieList {
   final int totalResults;
 
   const MovieList({required this.movies, required this.page, required this.totalPages, required this.totalResults});
-
-  @override
-  List<Object?> get props => [movies, page, totalPages, totalResults];
 }
 
 class DateEntity {
@@ -38,9 +33,6 @@ class DateEntity {
   final String minimum;
 
   DateEntity({required this.maximum, required this.minimum});
-
-  @override
-  List<Object?> get props => [maximum, minimum];
 }
 
 class MovieEntity {
@@ -65,7 +57,4 @@ class MovieEntity {
     required this.voteAverage,
     required this.releaseDate,
   });
-
-  @override
-  List<Object?> get props => [id, adult, title, overview, posterPath, voteAverage, releaseDate, genreIds];
 }

@@ -31,8 +31,8 @@ class MovieRepositoryImpl implements MovieRepository {
         );
       }
     } on DioException catch (e, stackTrace) {
-      print("API Call Failed: $e");
-      print("Stack Trace: $stackTrace");
+      log("API Call Failed: $e");
+      log("Stack Trace: $stackTrace");
       return DataFailed(e);
     }
   }

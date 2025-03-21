@@ -6,7 +6,7 @@ abstract class MovieListState extends Equatable {
   final List<MovieEntity>? movies;
   final DioException? error;
 
-  MovieListState({this.movies, this.error});
+  const MovieListState({this.movies, this.error});
 
   @override
   List<Object> get props => [movies!, error!];
@@ -17,15 +17,15 @@ class MovieListInitial extends MovieListState {}
 
 //loading
 class MovieListLoading extends MovieListState {
-  MovieListLoading();
+  const MovieListLoading();
 }
 
 //done loading
 class MovieListDone extends MovieListState {
-  MovieListDone(List<MovieEntity> movies) : super(movies: movies);
+  const MovieListDone(List<MovieEntity> movies) : super(movies: movies);
 }
 
 //error
 class MovieListError extends MovieListState {
-  MovieListError(DioException error) : super(error: error);
+  const MovieListError(DioException error) : super(error: error);
 }

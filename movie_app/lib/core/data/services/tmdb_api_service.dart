@@ -1,4 +1,3 @@
-import 'package:movie_app/features/movie_details/data/models/movie_details_model.dart';
 import 'package:movie_app/core/data/models/movie_list_model.dart';
 import 'package:movie_app/core/data/models/video_model.dart';
 import 'package:movie_app/core/utils/constants.dart';

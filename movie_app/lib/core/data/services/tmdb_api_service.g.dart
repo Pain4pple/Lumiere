@@ -1,5 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+// ignore_for_file: unused_element_parameter
+
 part of 'tmdb_api_service.dart';
 
 // **************************************************************************
@@ -20,28 +22,15 @@ class _TmdbApiService implements TmdbApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<HttpResponse<MovieListModel>> getNowPlayingMovies({
-    String? apiKey,
-    String language = language,
-    int page = page,
-  }) async {
+  Future<HttpResponse<MovieListModel>> getNowPlayingMovies({String? apiKey, String language = language, int page = page}) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'api_key': apiKey,
-      r'language': language,
-      r'page': page,
-    };
+    final queryParameters = <String, dynamic>{r'api_key': apiKey, r'language': language, r'page': page};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<HttpResponse<MovieListModel>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/movie/now_playing',
-            queryParameters: queryParameters,
-            data: _data,
-          )
+          .compose(_dio.options, '/movie/now_playing', queryParameters: queryParameters, data: _data)
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
@@ -57,10 +46,7 @@ class _TmdbApiService implements TmdbApiService {
   }
 
   @override
-  Future<HttpResponse<List<VideoModel>>> getMovieVideos(
-    int movieId,
-    String? apiKey,
-  ) async {
+  Future<HttpResponse<List<VideoModel>>> getMovieVideos(int movieId, String? apiKey) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'api_key': apiKey};
     queryParameters.removeWhere((k, v) => v == null);
@@ -68,23 +54,13 @@ class _TmdbApiService implements TmdbApiService {
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<HttpResponse<List<VideoModel>>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/movie/${movieId}/videos',
-            queryParameters: queryParameters,
-            data: _data,
-          )
+          .compose(_dio.options, '/movie/${movieId}/videos', queryParameters: queryParameters, data: _data)
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<List<dynamic>>(_options);
     late List<VideoModel> _value;
     try {
-      _value =
-          _result.data!
-              .map(
-                (dynamic i) => VideoModel.fromJson(i as Map<String, dynamic>),
-              )
-              .toList();
+      _value = _result.data!.map((dynamic i) => VideoModel.fromJson(i as Map<String, dynamic>)).toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -94,28 +70,15 @@ class _TmdbApiService implements TmdbApiService {
   }
 
   @override
-  Future<HttpResponse<MovieListModel>> getPopularMovies({
-    String? apiKey,
-    String language = language,
-    int page = page,
-  }) async {
+  Future<HttpResponse<MovieListModel>> getPopularMovies({String? apiKey, String language = language, int page = page}) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'api_key': apiKey,
-      r'language': language,
-      r'page': page,
-    };
+    final queryParameters = <String, dynamic>{r'api_key': apiKey, r'language': language, r'page': page};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<HttpResponse<MovieListModel>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/movie/popular',
-            queryParameters: queryParameters,
-            data: _data,
-          )
+          .compose(_dio.options, '/movie/popular', queryParameters: queryParameters, data: _data)
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
@@ -131,28 +94,15 @@ class _TmdbApiService implements TmdbApiService {
   }
 
   @override
-  Future<HttpResponse<MovieListModel>> getTopRatedMovies({
-    String? apiKey,
-    String language = language,
-    int page = page,
-  }) async {
+  Future<HttpResponse<MovieListModel>> getTopRatedMovies({String? apiKey, String language = language, int page = page}) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'api_key': apiKey,
-      r'language': language,
-      r'page': page,
-    };
+    final queryParameters = <String, dynamic>{r'api_key': apiKey, r'language': language, r'page': page};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<HttpResponse<MovieListModel>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/movie/top_rated',
-            queryParameters: queryParameters,
-            data: _data,
-          )
+          .compose(_dio.options, '/movie/top_rated', queryParameters: queryParameters, data: _data)
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
@@ -168,28 +118,15 @@ class _TmdbApiService implements TmdbApiService {
   }
 
   @override
-  Future<HttpResponse<MovieListModel>> getUpcomingMovies({
-    String? apiKey,
-    String language = language,
-    int page = page,
-  }) async {
+  Future<HttpResponse<MovieListModel>> getUpcomingMovies({String? apiKey, String language = language, int page = page}) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'api_key': apiKey,
-      r'language': language,
-      r'page': page,
-    };
+    final queryParameters = <String, dynamic>{r'api_key': apiKey, r'language': language, r'page': page};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<HttpResponse<MovieListModel>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/movie/upcoming',
-            queryParameters: queryParameters,
-            data: _data,
-          )
+          .compose(_dio.options, '/movie/upcoming', queryParameters: queryParameters, data: _data)
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
@@ -205,28 +142,15 @@ class _TmdbApiService implements TmdbApiService {
   }
 
   @override
-  Future<HttpResponse<MovieListModel>> getClassicMovies(
-    String? apiKey,
-    String sortBy,
-    String releaseDate,
-  ) async {
+  Future<HttpResponse<MovieListModel>> getClassicMovies(String? apiKey, String sortBy, String releaseDate) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'api_key': apiKey,
-      r'sort_by': sortBy,
-      r'primary_release_date.lte': releaseDate,
-    };
+    final queryParameters = <String, dynamic>{r'api_key': apiKey, r'sort_by': sortBy, r'primary_release_date.lte': releaseDate};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<HttpResponse<MovieListModel>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/discover/movie',
-            queryParameters: queryParameters,
-            data: _data,
-          )
+          .compose(_dio.options, '/discover/movie', queryParameters: queryParameters, data: _data)
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
@@ -242,28 +166,15 @@ class _TmdbApiService implements TmdbApiService {
   }
 
   @override
-  Future<HttpResponse<MovieListModel>> getFilipinoMovies(
-    String? apiKey,
-    String sortBy,
-    String language,
-  ) async {
+  Future<HttpResponse<MovieListModel>> getFilipinoMovies(String? apiKey, String sortBy, String language) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{
-      r'api_key': apiKey,
-      r'sort_by': sortBy,
-      r'with_original_language': language,
-    };
+    final queryParameters = <String, dynamic>{r'api_key': apiKey, r'sort_by': sortBy, r'with_original_language': language};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<HttpResponse<MovieListModel>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/discover/movie',
-            queryParameters: queryParameters,
-            data: _data,
-          )
+          .compose(_dio.options, '/discover/movie', queryParameters: queryParameters, data: _data)
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
@@ -287,12 +198,7 @@ class _TmdbApiService implements TmdbApiService {
     const Map<String, dynamic>? _data = null;
     final _options = _setStreamType<HttpResponse<MovieListModel>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
-          .compose(
-            _dio.options,
-            '/list/28',
-            queryParameters: queryParameters,
-            data: _data,
-          )
+          .compose(_dio.options, '/list/28', queryParameters: queryParameters, data: _data)
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
@@ -308,9 +214,7 @@ class _TmdbApiService implements TmdbApiService {
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
-    if (T != dynamic &&
-        !(requestOptions.responseType == ResponseType.bytes ||
-            requestOptions.responseType == ResponseType.stream)) {
+    if (T != dynamic && !(requestOptions.responseType == ResponseType.bytes || requestOptions.responseType == ResponseType.stream)) {
       if (T == String) {
         requestOptions.responseType = ResponseType.plain;
       } else {
