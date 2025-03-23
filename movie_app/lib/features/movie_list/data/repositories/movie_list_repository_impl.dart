@@ -154,7 +154,7 @@ class MovieRepositoryImpl implements MovieRepository {
   Future<DataState<List<MovieEntity>>> getOscarWinningMovies() async {
     try {
       final httpResponse = await _tmdbApiService.getBestPictures(apiKey);
-      log("API Response: ${httpResponse.data}");
+      log("Oscar Movie Response: ${httpResponse.data}");
       if (httpResponse.response.statusCode == HttpStatus.ok || httpResponse.response.statusCode == 200) {
         final List<MovieEntity> movieEntities = toDomainItems(httpResponse.data);
         return DataSuccess(movieEntities);

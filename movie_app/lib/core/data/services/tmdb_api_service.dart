@@ -24,7 +24,7 @@ abstract class TmdbApiService {
 
   //get trailers for movies
   @GET('/movie/{movie_id}/videos')
-  Future<HttpResponse<List<VideoModel>>> getMovieVideos(@Path('movie_id') int movieId, @Query('api_key') String? apiKey);
+  Future<HttpResponse<VideoListModel>> getMovieVideos(@Path('movie_id') int movieId, @Query('api_key') String? apiKey);
 
   //get popular movies
   @GET('/movie/popular')

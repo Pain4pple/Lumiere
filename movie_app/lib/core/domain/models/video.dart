@@ -5,21 +5,17 @@ _________________________________________________
 
   it has these properties:
   > int id;
-  > int popularity;
-  > String title;
-  > String status;
-  > String backdropPath;
-  > String posterPath;
-  > bool video;
-  > DateTime releaseDate;
-  > List<Genre> genres;
+  > String site;
+  > String type;
 
 _________________________________________________
 
  */
 class Video {
-  final int id;
-  final String name;
+  final String id;
+  final String site;
+  final String key;
+  final String type;
 
-  Video({required this.id, required this.name});
+  Video({required this.key, required this.id, required this.site, required this.type});
 }

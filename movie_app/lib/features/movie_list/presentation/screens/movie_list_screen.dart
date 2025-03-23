@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/di/injection_container.dart';
 import 'package:movie_app/features/movie_list/presentation/blocs/movie_lists_bloc.dart';
 import 'package:movie_app/features/movie_list/presentation/blocs/movie_lists_event.dart';
-import 'package:movie_app/features/movie_list/presentation/widgets/highlighted_movie.dart';
 import 'package:movie_app/features/movie_list/presentation/widgets/movie_row_list.dart';
+import 'package:movie_app/features/video/presentation/widgets/video_carousel.dart';
 
 class MovieListScreen extends StatelessWidget {
   const MovieListScreen({super.key});
@@ -18,8 +18,21 @@ class MovieListScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              HighlightedMovie(imagePosterUrl: "", imageLogoUrl: "", videoUrl: "", description: ""),
+              // HighlightedMovie(imagePosterUrl: "", imageLogoUrl: "", videoUrl: "", description: ""),
+              // BlocProvider(create: (context) => sl<VideoBloc>()..add(FetchNowPlayingTrailers()), child: VideoCarousel()),
+              // BlocBuilder<VideoBloc, VideoState>(
+              //   builder: (context, state) {
+              //     if (state is VideoLoading) {
+              //       return const Center(child: CircularProgressIndicator());
+              //     } else if (state is VideoError) {
+              //       return Center(child: Icon(Icons.error));
+              //     } else if (state is VideoDone) {
 
+              //     }
+              //     return SizedBox();
+              //   },
+              // ),
+              MovieCarousel(),
               const SizedBox(height: 10),
               BlocProvider(
                 create: (context) => sl<MovieListsBloc>()..add(FetchNowPlayingMovies()),

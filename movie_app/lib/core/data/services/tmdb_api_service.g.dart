@@ -46,21 +46,21 @@ class _TmdbApiService implements TmdbApiService {
   }
 
   @override
-  Future<HttpResponse<List<VideoModel>>> getMovieVideos(int movieId, String? apiKey) async {
+  Future<HttpResponse<VideoListModel>> getMovieVideos(int movieId, String? apiKey) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'api_key': apiKey};
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<HttpResponse<List<VideoModel>>>(
+    final _options = _setStreamType<HttpResponse<VideoListModel>>(
       Options(method: 'GET', headers: _headers, extra: _extra)
           .compose(_dio.options, '/movie/${movieId}/videos', queryParameters: queryParameters, data: _data)
           .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
     );
-    final _result = await _dio.fetch<List<dynamic>>(_options);
-    late List<VideoModel> _value;
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late VideoListModel _value;
     try {
-      _value = _result.data!.map((dynamic i) => VideoModel.fromJson(i as Map<String, dynamic>)).toList();
+      _value = VideoListModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
