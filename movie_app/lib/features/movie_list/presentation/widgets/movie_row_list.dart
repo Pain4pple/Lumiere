@@ -13,7 +13,10 @@ class MovieRowList extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Row(children: [Text(movieCategory), const Spacer(), TextButton(onPressed: () {}, child: Text("See All"))]),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Row(children: [Text(movieCategory), const Spacer(), TextButton(onPressed: () {}, child: Text("See All"))]),
+        ),
         SizedBox(
           height: 250,
           child: BlocBuilder<MovieListsBloc, MovieListState>(
@@ -27,7 +30,7 @@ class MovieRowList extends StatelessWidget {
                   itemCount: movies!.length,
                   itemBuilder: (context, index) {
                     final movie = movies[index];
-                    return Padding(padding: const EdgeInsets.all(8.0), child: MovieCard(imagePosterUrl: movie.posterPath, movieTitle: movie.title));
+                    return Padding(padding: const EdgeInsets.all(8.0), child: MovieCard(movie: movie));
                   },
                 );
               } else if (state is MovieListError) {
