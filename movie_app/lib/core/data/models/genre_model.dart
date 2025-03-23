@@ -1,3 +1,7 @@
+/*
+  genre object as a
+  raw response from TMdB
+*/
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:movie_app/core/domain/models/genre.dart';
 

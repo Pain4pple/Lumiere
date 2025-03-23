@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/di/injection_container.dart';
 import 'package:movie_app/features/movie_list/presentation/blocs/movie_lists_bloc.dart';
 import 'package:movie_app/features/movie_list/presentation/blocs/movie_lists_event.dart';
+import 'package:movie_app/features/movie_list/presentation/widgets/highlighted_movie.dart';
 import 'package:movie_app/features/movie_list/presentation/widgets/movie_row_list.dart';
 
 class MovieListScreen extends StatelessWidget {
@@ -13,36 +14,34 @@ class MovieListScreen extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // HighlightedMovie(imagePosterUrl: "", imageLogoUrl: "", videoUrl: "", description: ""),
-                const SizedBox(height: 10),
-                BlocProvider(
-                  create: (context) => sl<MovieListsBloc>()..add(FetchNowPlayingMovies()),
-                  child: SizedBox(height: 300, child: MovieRowList(movieCategory: "Now Playing")),
-                ),
-                BlocProvider(
-                  create: (context) => sl<MovieListsBloc>()..add(FetchOscarWinningMovies()),
-                  child: SizedBox(height: 300, child: MovieRowList(movieCategory: "Best Picture - The Academy Awards")),
-                ),
-                BlocProvider(
-                  create: (context) => sl<MovieListsBloc>()..add(FetchTopRatedMovies()),
-                  child: SizedBox(height: 300, child: MovieRowList(movieCategory: "Top Rated")),
-                ),
-                BlocProvider(
-                  create: (context) => sl<MovieListsBloc>()..add(FetchFilipinoMovies()),
-                  child: SizedBox(height: 300, child: MovieRowList(movieCategory: "Filipino Movies")),
-                ),
-                BlocProvider(
-                  create: (context) => sl<MovieListsBloc>()..add(FetchClassicMovies()),
-                  child: SizedBox(height: 300, child: MovieRowList(movieCategory: "Classics")),
-                ),
-              ],
-            ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              HighlightedMovie(imagePosterUrl: "", imageLogoUrl: "", videoUrl: "", description: ""),
+
+              const SizedBox(height: 10),
+              BlocProvider(
+                create: (context) => sl<MovieListsBloc>()..add(FetchNowPlayingMovies()),
+                child: SizedBox(height: 300, child: MovieRowList(movieCategory: "Now Playing")),
+              ),
+              BlocProvider(
+                create: (context) => sl<MovieListsBloc>()..add(FetchOscarWinningMovies()),
+                child: SizedBox(height: 300, child: MovieRowList(movieCategory: "Best Picture - The Academy Awards")),
+              ),
+              BlocProvider(
+                create: (context) => sl<MovieListsBloc>()..add(FetchTopRatedMovies()),
+                child: SizedBox(height: 300, child: MovieRowList(movieCategory: "Top Rated")),
+              ),
+              BlocProvider(
+                create: (context) => sl<MovieListsBloc>()..add(FetchFilipinoMovies()),
+                child: SizedBox(height: 300, child: MovieRowList(movieCategory: "Filipino Movies")),
+              ),
+              BlocProvider(
+                create: (context) => sl<MovieListsBloc>()..add(FetchClassicMovies()),
+                child: SizedBox(height: 300, child: MovieRowList(movieCategory: "Classics")),
+              ),
+            ],
           ),
         ),
       ),

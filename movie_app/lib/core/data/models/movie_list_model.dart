@@ -1,5 +1,8 @@
 // ignore_for_file: invalid_annotation_target
-
+/*
+  movie list object as a
+  raw response from TMdB
+*/
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'movie_list_model.freezed.dart';

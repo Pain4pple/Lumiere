@@ -195,6 +195,7 @@ class MovieRepositoryImpl implements MovieRepository {
     }
   }
 
+  //this conversion is specific for movie lists that returns "results" to encase individual movies
   List<MovieEntity> toDomainResults(MovieListModel model) {
     final movieEntity =
         model.results
@@ -215,6 +216,7 @@ class MovieRepositoryImpl implements MovieRepository {
     return movieEntity;
   }
 
+  //this conversion is specific for movie lists that returns "items" to encase individual movies (e.g. The Best Picture List)
   List<MovieEntity> toDomainItems(MovieListModel model) {
     final movieEntity =
         model.items

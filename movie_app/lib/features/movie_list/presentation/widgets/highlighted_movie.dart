@@ -15,6 +15,6 @@ class HighlightedMovie extends StatefulWidget {
 class _HighlightedMovieState extends State<HighlightedMovie> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Stack(children: [Container(width: double.infinity, height: 250, color: Colors.amber)]);
   }
 }

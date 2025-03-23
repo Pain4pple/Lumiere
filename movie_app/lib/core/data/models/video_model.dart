@@ -1,5 +1,8 @@
 // ignore_for_file: invalid_annotation_target
-
+/*
+  video object as a
+  raw response from TMdB
+*/
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'video_model.freezed.dart';
