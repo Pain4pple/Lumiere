@@ -7,12 +7,6 @@ class MovieDetailsOverlay extends StatelessWidget {
   final MovieWithTrailer movie;
   const MovieDetailsOverlay({super.key, required this.movie});
 
-  String getFirstSentence(String text) {
-    final match = RegExp(r'^(.*?(?:\b(?:[A-Z][a-z]+|I|U\.S)\b.*?))[.!?](?=\s+[A-Z]|\s*$)', caseSensitive: false).firstMatch(text);
-
-    return match != null ? match.group(0)! : text;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Container(
