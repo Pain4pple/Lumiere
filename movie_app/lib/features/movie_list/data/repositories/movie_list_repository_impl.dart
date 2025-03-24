@@ -129,9 +129,9 @@ class MovieRepositoryImpl implements MovieRepository {
   }
 
   @override
-  Future<DataState<List<MovieEntity>>> getTrendingInPh() async {
+  Future<DataState<List<MovieEntity>>> getCountryMovies() async {
     try {
-      final httpResponse = await _tmdbApiService.getFilipinoMovies(apiKey, "popularity.desc", "tl");
+      final httpResponse = await _tmdbApiService.getCountryMovies(apiKey, "popularity.desc", "ko", false);
       if (httpResponse.response.statusCode == HttpStatus.ok || httpResponse.response.statusCode == 200) {
         final List<MovieEntity> movieEntities = toDomainResults(httpResponse.data);
         return DataSuccess(movieEntities);

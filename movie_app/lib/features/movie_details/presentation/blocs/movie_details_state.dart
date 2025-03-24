@@ -1,15 +1,18 @@
 import 'package:equatable/equatable.dart';
 import 'package:dio/dio.dart';
+import 'package:movie_app/features/movie_details/domain/models/movie_credits.dart';
 import 'package:movie_app/features/movie_details/domain/models/movie_details.dart';
 
 abstract class MovieDetailsState extends Equatable {
   final MovieDetails? movie;
+  final List<Cast>? cast;
+  final List<Crew>? crew;
   final DioException? error;
 
-  const MovieDetailsState({this.movie, this.error});
+  const MovieDetailsState({this.movie, this.cast, this.crew, this.error});
 
   @override
-  List<Object> get props => [movie!, error!];
+  List<Object?> get props => [movie, cast, crew, error];
 }
 
 //init state
@@ -22,7 +25,7 @@ class MovieDetailsLoading extends MovieDetailsState {
 
 //done loading
 class MovieDetailsDone extends MovieDetailsState {
-  const MovieDetailsDone(MovieDetails movie) : super(movie: movie);
+  const MovieDetailsDone(MovieDetails movie, List<Cast> cast, List<Crew> crew) : super(movie: movie, cast: cast, crew: crew);
 }
 
 //error

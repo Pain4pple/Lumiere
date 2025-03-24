@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/features/movie_details/domain/models/movie_credits.dart';
 import 'package:movie_app/features/movie_details/domain/models/movie_details.dart';
 import 'package:intl/intl.dart';
+import 'package:movie_app/features/movie_details/presentation/widgets/cast_list.dart';
 
 class TitleContainer extends StatelessWidget {
-  const TitleContainer({super.key, required this.movie});
+  const TitleContainer({super.key, required this.movie, required this.movieCredits});
   final MovieDetails movie;
+  final List<Cast> movieCredits;
 
   String formatDuration(int totalMinutes) {
     int hours = totalMinutes ~/ 60;
@@ -83,6 +86,16 @@ class TitleContainer extends StatelessWidget {
           //movie cast
           const SizedBox(height: 20),
           Text("Cast", style: const TextStyle(fontSize: 22, fontWeight: FontWeight.w500)),
+          SizedBox(
+            height: 100,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: movieCredits.length,
+              itemBuilder: (context, index) {
+                return CastTile(cast: movieCredits[index]);
+              },
+            ),
+          ),
         ],
       ),
     );

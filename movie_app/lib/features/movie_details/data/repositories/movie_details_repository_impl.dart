@@ -6,6 +6,8 @@ import 'package:movie_app/core/data/services/tmdb_api_service.dart';
 import 'package:movie_app/core/domain/models/genre.dart';
 import 'package:movie_app/core/resources/data_state.dart';
 import 'package:movie_app/features/movie_details/data/models/movie_details_model.dart';
+import 'package:movie_app/features/movie_details/data/movie_credits_mapper.dart';
+import 'package:movie_app/features/movie_details/domain/models/movie_credits.dart';
 import 'package:movie_app/features/movie_details/domain/models/movie_details.dart';
 import 'package:movie_app/features/movie_details/domain/models/production_company.dart';
 import 'package:movie_app/features/movie_details/domain/repositories/movie_details_repository.dart';
@@ -18,12 +20,37 @@ class MovieDetailsRepositoryImpl implements MovieDetailsRepository {
   //gets specific movie details using movie ID
   Future<DataState<MovieDetails>> getMovieDetails(int movieId) async {
     try {
-      log("Searching movie ID: $movieId");
       final httpResponse = await _tmdbApiService.getMovieDetails(movieId, apiKey!);
-      log("Movie Details: ${httpResponse.data}");
       if (httpResponse.response.statusCode == HttpStatus.ok || httpResponse.response.statusCode == 200) {
         final movieDetails = toDomain(httpResponse.data);
         return DataSuccess(movieDetails);
+      } else {
+        return DataFailed(
+          DioException(
+            error: httpResponse.response.statusMessage,
+            response: httpResponse.response,
+            type: DioExceptionType.badResponse,
+            requestOptions: httpResponse.response.requestOptions,
+          ),
+        );
+      }
+    } on DioException catch (e, stackTrace) {
+      log("API Call Failed: $e");
+      log("Stack Trace: $stackTrace");
+      return DataFailed(e);
+    }
+  }
+
+  @override
+  //gets specific movie credits using movie ID
+  Future<DataState<MovieCredits>> getMovieCredits(int movieId) async {
+    try {
+      log("Searching movie ID for credits: $movieId");
+      final httpResponse = await _tmdbApiService.getMovieCredits(movieId, apiKey!);
+      log("Credit Details: ${httpResponse.data}");
+      if (httpResponse.response.statusCode == HttpStatus.ok || httpResponse.response.statusCode == 200) {
+        final movieCredits = httpResponse.data.toDomain();
+        return DataSuccess(movieCredits);
       } else {
         return DataFailed(
           DioException(

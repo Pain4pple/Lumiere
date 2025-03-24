@@ -1,7 +1,17 @@
-abstract class MovieDetailsEvent {}
+import 'package:equatable/equatable.dart';
 
-//fetch now playing movies
+abstract class MovieDetailsEvent extends Equatable {
+  const MovieDetailsEvent();
+
+  @override
+  List<Object> get props => [];
+}
+
 class FetchMovieDetails extends MovieDetailsEvent {
   final int movieId;
-  FetchMovieDetails(this.movieId);
+
+  const FetchMovieDetails(this.movieId);
+
+  @override
+  List<Object> get props => [movieId];
 }

@@ -60,7 +60,7 @@ class MovieListsBloc extends Bloc<MovieListEvent, MovieListState> {
     on<FetchFilipinoMovies>((event, emit) async {
       emit(MovieListLoading());
 
-      final result = await movieRepository.getTrendingInPh();
+      final result = await movieRepository.getCountryMovies();
       if (result is DataSuccess) {
         emit(MovieListDone(result.data ?? []));
       } else {

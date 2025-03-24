@@ -1,6 +1,7 @@
 import 'package:movie_app/core/data/models/movie_list_model.dart';
 import 'package:movie_app/core/data/models/video_model.dart';
 import 'package:movie_app/core/utils/constants.dart';
+import 'package:movie_app/features/movie_details/data/models/movie_credits_model.dart';
 import 'package:movie_app/features/movie_details/data/models/movie_details_model.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
@@ -58,12 +59,13 @@ abstract class TmdbApiService {
     @Query("primary_release_date.lte") String releaseDate,
   );
 
-  //get filipino movies
+  //get country movies
   @GET("/discover/movie")
-  Future<HttpResponse<MovieListModel>> getFilipinoMovies(
+  Future<HttpResponse<MovieListModel>> getCountryMovies(
     @Query("api_key") String? apiKey,
     @Query("sort_by") String sortBy,
     @Query("with_original_language") String language,
+    @Query("include_adult") bool includeAdult,
   );
 
   //retrieve movies from the The Best Picture list
@@ -73,4 +75,8 @@ abstract class TmdbApiService {
   //get specific movie and its details
   @GET('/movie/{movie_id}')
   Future<HttpResponse<MovieDetailsModel>> getMovieDetails(@Path('movie_id') int movieId, @Query('api_key') String apiKey);
+
+  //get cast and their details
+  @GET('/movie/{movie_id}/credits')
+  Future<HttpResponse<MovieCreditsModel>> getMovieCredits(@Path('movie_id') int movieId, @Query('api_key') String apiKey);
 }

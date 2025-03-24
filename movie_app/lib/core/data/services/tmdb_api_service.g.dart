@@ -166,9 +166,14 @@ class _TmdbApiService implements TmdbApiService {
   }
 
   @override
-  Future<HttpResponse<MovieListModel>> getFilipinoMovies(String? apiKey, String sortBy, String language) async {
+  Future<HttpResponse<MovieListModel>> getCountryMovies(String? apiKey, String sortBy, String language, bool includeAdult) async {
     final _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'api_key': apiKey, r'sort_by': sortBy, r'with_original_language': language};
+    final queryParameters = <String, dynamic>{
+      r'api_key': apiKey,
+      r'sort_by': sortBy,
+      r'with_original_language': language,
+      r'include_adult': includeAdult,
+    };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
@@ -228,6 +233,29 @@ class _TmdbApiService implements TmdbApiService {
     late MovieDetailsModel _value;
     try {
       _value = MovieDetailsModel.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    final httpResponse = HttpResponse(_value, _result);
+    return httpResponse;
+  }
+
+  @override
+  Future<HttpResponse<MovieCreditsModel>> getMovieCredits(int movieId, String apiKey) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'api_key': apiKey};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<HttpResponse<MovieCreditsModel>>(
+      Options(method: 'GET', headers: _headers, extra: _extra)
+          .compose(_dio.options, '/movie/${movieId}/credits', queryParameters: queryParameters, data: _data)
+          .copyWith(baseUrl: _combineBaseUrls(_dio.options.baseUrl, baseUrl)),
+    );
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late MovieCreditsModel _value;
+    try {
+      _value = MovieCreditsModel.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

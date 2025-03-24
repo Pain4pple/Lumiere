@@ -26,17 +26,23 @@ class MovieDetailsScreen extends StatelessWidget {
                 return const Center(child: CircularProgressIndicator());
               } else if (state is MovieDetailsDone) {
                 final movie = state.movie;
+                final movieCredit = state.cast;
                 return Stack(
                   children: [
                     //background
                     BackdropBlur(backdropUrl: '$tmdbBackdropImageBaseURL${movie!.backdropPath}'),
 
                     //movie details
-                    Column(
-                      children: [
-                        Hero(tag: movie.id, child: BackdropContainer(movie: movie)),
-                        Padding(padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10), child: TitleContainer(movie: movie)),
-                      ],
+                    SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          BackdropContainer(movie: movie),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                            child: TitleContainer(movie: movie, movieCredits: movieCredit!),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 );
