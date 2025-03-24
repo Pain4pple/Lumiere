@@ -24,7 +24,7 @@ class MovieRowList extends StatelessWidget {
               if (state is MovieListLoading) {
                 return Center(child: CircularProgressIndicator());
               } else if (state is MovieListDone) {
-                final movies = state.movies;
+                final movies = state.movieCategories[movieCategory] ?? [];
                 return ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: movies!.length,

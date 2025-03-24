@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "6445395428",
+    "project_id": "lumiere-1e344",
+    "storage_bucket": "lumiere-1e344.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6445395428:android:74fe5bdb4c290f4b802bf1",
+        "android_client_info": {
+          "package_name": "com.example.movie_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6445395428-43qcfprm9721emhl0muhgj93354sbk6b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.movie_app",
+            "certificate_hash": "63404a882d11eb516961c13c03a56ccc0e91764b"
+          }
+        },
+        {
+          "client_id": "6445395428-7qf47n1rd2esfk3sm58fl9tv806r8ogg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGjjyvKOHck9CT6czg41vieUmpdH3GmIE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6445395428-7qf47n1rd2esfk3sm58fl9tv806r8ogg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "6445395428-fkjd3pn6ss9illc202fl4755cu01qkmv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.movieApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

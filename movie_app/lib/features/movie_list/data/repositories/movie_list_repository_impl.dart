@@ -61,29 +61,6 @@ class MovieRepositoryImpl implements MovieRepository {
     }
   }
 
-  //get videos
-  // @override
-  // Future<DataState<List<Video>>> getMovieVideos() async {
-  //   try {
-  //     final httpResponse = await _tmdbApiService.getNowPlayingMovies(TMDB_API_KEY: TMDB_API_KEY);
-  //     if (httpResponse.response.statusCode == HttpStatus.ok) {
-  //       final movies = httpResponse.data.map((movieModel) => movieModel.toEntity()).toList();
-  //       return DataSuccess(movies);
-  //     } else {
-  //       return DataFailed(
-  //         DioException(
-  //           error: httpResponse.response.statusMessage,
-  //           response: httpResponse.response,
-  //           type: DioExceptionType.badResponse,
-  //           requestOptions: httpResponse.response.requestOptions,
-  //         ),
-  //       );
-  //     }
-  //   } on DioException catch (e) {
-  //     return DataFailed(e);
-  //   }
-  // }
-
   @override
   Future<DataState<List<MovieEntity>>> getClassicMovies() async {
     try {

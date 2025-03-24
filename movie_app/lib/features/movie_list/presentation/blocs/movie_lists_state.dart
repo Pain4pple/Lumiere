@@ -1,15 +1,16 @@
+// ignore_for_file: annotate_overrides, overridden_fields
+
 import 'package:equatable/equatable.dart';
 import 'package:dio/dio.dart';
-import 'package:movie_app/core/domain/models/movie_list.dart';
 
 abstract class MovieListState extends Equatable {
-  final List<MovieEntity>? movies;
+  final Map<String, dynamic>? movieCategories;
   final DioException? error;
 
-  const MovieListState({this.movies, this.error});
+  const MovieListState({this.movieCategories, this.error});
 
   @override
-  List<Object> get props => [movies!, error!];
+  List<Object> get props => [movieCategories!, error!];
 }
 
 //init state
@@ -22,7 +23,12 @@ class MovieListLoading extends MovieListState {
 
 //done loading
 class MovieListDone extends MovieListState {
-  const MovieListDone(List<MovieEntity> movies) : super(movies: movies);
+  final Map<String, dynamic> movieCategories;
+
+  const MovieListDone(this.movieCategories) : super();
+
+  @override
+  List<Object> get props => [movieCategories];
 }
 
 //error

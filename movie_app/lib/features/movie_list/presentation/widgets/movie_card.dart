@@ -60,7 +60,6 @@ class _MovieCardState extends State<MovieCard> {
             imageUrl: "$tmdbImageBaseURL${widget.movie.posterPath}",
             width: 150,
             fit: BoxFit.cover,
-            placeholder: (context, url) => Center(child: SizedBox(width: 50, height: 50, child: CircularProgressIndicator.adaptive())),
             errorWidget: (context, url, error) => Icon(Icons.error),
           ),
         ),
