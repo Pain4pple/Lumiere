@@ -28,6 +28,7 @@ import 'package:movie_app/features/movie_details/domain/models/production_compan
 class MovieDetails {
   final int id;
   final int popularity;
+  final double voteAverage;
   final int runtime;
   final String title;
   final String tagline;
@@ -43,6 +44,7 @@ class MovieDetails {
   MovieDetails({
     required this.id,
     required this.popularity,
+    required this.voteAverage,
     required this.title,
     required this.status,
     required this.backdropPath,

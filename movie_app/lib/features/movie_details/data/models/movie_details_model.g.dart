@@ -21,7 +21,7 @@ _MovieDetailsModel _$MovieDetailsModelFromJson(Map<String, dynamic> json) =>
       popularity: (json['popularity'] as num?)?.toInt() ?? 0,
       revenue: (json['revenue'] as num?)?.toInt() ?? 0,
       runtime: (json['runtime'] as num?)?.toInt() ?? 0,
-      voteAverage: (json['vote_average'] as num?)?.toInt() ?? 0,
+      voteAverage: (json['vote_average'] as num?)?.toDouble() ?? 0.0,
       voteCount: (json['vote_count'] as num?)?.toInt() ?? 0,
       posterPath: json['poster_path'] as String? ?? '',
       releaseDate: json['release_date'] as String? ?? '',

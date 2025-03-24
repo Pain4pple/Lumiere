@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:movie_app/core/di/injection_container.dart';
+import 'package:movie_app/features/movie_details/presentation/screens/movie_details_screen.dart';
 import 'package:movie_app/features/video/presentation/blocs/video_bloc.dart';
 import 'package:movie_app/features/video/presentation/blocs/video_events.dart';
 import 'package:movie_app/features/video/presentation/blocs/video_state.dart';
@@ -71,24 +72,29 @@ class _MovieCarouselState extends State<MovieCarousel> {
                 ),
                 itemCount: movies.length,
                 itemBuilder: (context, index, realIndex) {
-                  return Container(
-                    color: Colors.black,
-                    alignment: Alignment.center,
-                    child: Stack(
-                      fit: StackFit.expand,
-                      children: [
-                        VideoPlayer(trailerKey: movies[index].videoKey!, onVideoEnd: _moveToNext),
-                        Container(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [const Color.fromARGB(0, 0, 0, 0), const Color.fromARGB(255, 15, 12, 21)],
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => MovieDetailsScreen(movieId: movies[index].id)));
+                    },
+                    child: Container(
+                      color: Colors.black,
+                      alignment: Alignment.center,
+                      child: Stack(
+                        fit: StackFit.expand,
+                        children: [
+                          VideoPlayer(trailerKey: movies[index].videoKey!, onVideoEnd: _moveToNext),
+                          Container(
+                            decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [const Color.fromARGB(0, 0, 0, 0), Theme.of(context).scaffoldBackgroundColor],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                              ),
                             ),
                           ),
-                        ),
-                        Positioned(bottom: 10, left: 10, child: MovieDetailsOverlay(movie: movies[index])),
-                      ],
+                          Positioned(bottom: 10, left: 10, child: MovieDetailsOverlay(movie: movies[index])),
+                        ],
+                      ),
                     ),
                   );
                 },

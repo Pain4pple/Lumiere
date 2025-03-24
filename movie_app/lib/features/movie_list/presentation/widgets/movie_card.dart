@@ -56,12 +56,15 @@ class _MovieCardState extends State<MovieCard> {
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(16), color: const Color.fromARGB(209, 12, 10, 15)),
         child: ClipRRect(
           borderRadius: BorderRadius.all(Radius.circular(12)),
-          child: CachedNetworkImage(
-            imageUrl: "$tmdbImageBaseURL${widget.movie.posterPath}",
-            width: 150,
-            fit: BoxFit.cover,
-            placeholder: (context, url) => Center(child: SizedBox(width: 50, height: 50, child: CircularProgressIndicator.adaptive())),
-            errorWidget: (context, url, error) => Icon(Icons.error),
+          child: Hero(
+            tag: widget.movie.id,
+            child: CachedNetworkImage(
+              imageUrl: "$tmdbImageBaseURL${widget.movie.posterPath}",
+              width: 150,
+              fit: BoxFit.cover,
+              placeholder: (context, url) => Center(child: SizedBox(width: 50, height: 50, child: CircularProgressIndicator.adaptive())),
+              errorWidget: (context, url, error) => Icon(Icons.error),
+            ),
           ),
         ),
       ),

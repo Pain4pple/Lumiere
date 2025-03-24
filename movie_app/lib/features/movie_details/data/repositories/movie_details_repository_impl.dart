@@ -53,6 +53,7 @@ class MovieDetailsRepositoryImpl implements MovieDetailsRepository {
       backdropPath: movie.backdropPath ?? "",
       genres: (movie.genres ?? []).map((e) => Genre(id: e.id, name: e.name)).toList(),
       popularity: movie.popularity,
+      voteAverage: movie.voteAverage,
       productionCompanies:
           (movie.productionCompanies ?? [])
               .map((e) => ProductionCompany(id: e.id, name: e.name, logoPath: e.logoPath ?? "", originCountry: e.originCountry ?? ""))

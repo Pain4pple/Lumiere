@@ -16,7 +16,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$MovieDetailsModel {
 
- int get id; bool get adult; bool get video;@JsonKey(name: 'backdrop_path') String? get backdropPath;@JsonKey(name: 'homepage') String? get homepage;@JsonKey(name: 'imdb_id') String? get imdbId;@JsonKey(name: 'original_language') String? get originalLanguage;@JsonKey(name: 'original_title') String? get originalTitle; String? get overview; int get budget; int get popularity; int get revenue; int get runtime;@JsonKey(name: 'vote_average') int get voteAverage;@JsonKey(name: 'vote_count') int get voteCount;@JsonKey(name: 'poster_path') String? get posterPath;@JsonKey(name: 'release_date') String? get releaseDate; String? get status; String? get tagline; String? get title; List<GenreModel>? get genres; List<ProductionCompanyModel>? get productionCompanies;
+ int get id; bool get adult; bool get video;@JsonKey(name: 'backdrop_path') String? get backdropPath;@JsonKey(name: 'homepage') String? get homepage;@JsonKey(name: 'imdb_id') String? get imdbId;@JsonKey(name: 'original_language') String? get originalLanguage;@JsonKey(name: 'original_title') String? get originalTitle; String? get overview; int get budget; int get popularity; int get revenue; int get runtime;@JsonKey(name: 'vote_average') double get voteAverage;@JsonKey(name: 'vote_count') int get voteCount;@JsonKey(name: 'poster_path') String? get posterPath;@JsonKey(name: 'release_date') String? get releaseDate; String? get status; String? get tagline; String? get title; List<GenreModel>? get genres; List<ProductionCompanyModel>? get productionCompanies;
 /// Create a copy of MovieDetailsModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -49,7 +49,7 @@ abstract mixin class $MovieDetailsModelCopyWith<$Res>  {
   factory $MovieDetailsModelCopyWith(MovieDetailsModel value, $Res Function(MovieDetailsModel) _then) = _$MovieDetailsModelCopyWithImpl;
 @useResult
 $Res call({
- int id, bool adult, bool video,@JsonKey(name: 'backdrop_path') String? backdropPath,@JsonKey(name: 'homepage') String? homepage,@JsonKey(name: 'imdb_id') String? imdbId,@JsonKey(name: 'original_language') String? originalLanguage,@JsonKey(name: 'original_title') String? originalTitle, String? overview, int budget, int popularity, int revenue, int runtime,@JsonKey(name: 'vote_average') int voteAverage,@JsonKey(name: 'vote_count') int voteCount,@JsonKey(name: 'poster_path') String? posterPath,@JsonKey(name: 'release_date') String? releaseDate, String? status, String? tagline, String? title, List<GenreModel>? genres, List<ProductionCompanyModel>? productionCompanies
+ int id, bool adult, bool video,@JsonKey(name: 'backdrop_path') String? backdropPath,@JsonKey(name: 'homepage') String? homepage,@JsonKey(name: 'imdb_id') String? imdbId,@JsonKey(name: 'original_language') String? originalLanguage,@JsonKey(name: 'original_title') String? originalTitle, String? overview, int budget, int popularity, int revenue, int runtime,@JsonKey(name: 'vote_average') double voteAverage,@JsonKey(name: 'vote_count') int voteCount,@JsonKey(name: 'poster_path') String? posterPath,@JsonKey(name: 'release_date') String? releaseDate, String? status, String? tagline, String? title, List<GenreModel>? genres, List<ProductionCompanyModel>? productionCompanies
 });
 
 
@@ -82,7 +82,7 @@ as int,popularity: null == popularity ? _self.popularity : popularity // ignore:
 as int,revenue: null == revenue ? _self.revenue : revenue // ignore: cast_nullable_to_non_nullable
 as int,runtime: null == runtime ? _self.runtime : runtime // ignore: cast_nullable_to_non_nullable
 as int,voteAverage: null == voteAverage ? _self.voteAverage : voteAverage // ignore: cast_nullable_to_non_nullable
-as int,voteCount: null == voteCount ? _self.voteCount : voteCount // ignore: cast_nullable_to_non_nullable
+as double,voteCount: null == voteCount ? _self.voteCount : voteCount // ignore: cast_nullable_to_non_nullable
 as int,posterPath: freezed == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
 as String?,releaseDate: freezed == releaseDate ? _self.releaseDate : releaseDate // ignore: cast_nullable_to_non_nullable
 as String?,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
@@ -101,7 +101,7 @@ as List<ProductionCompanyModel>?,
 @JsonSerializable()
 
 class _MovieDetailsModel implements MovieDetailsModel {
-   _MovieDetailsModel({required this.id, this.adult = true, this.video = false, @JsonKey(name: 'backdrop_path') this.backdropPath = '', @JsonKey(name: 'homepage') this.homepage = '', @JsonKey(name: 'imdb_id') this.imdbId = '', @JsonKey(name: 'original_language') this.originalLanguage = '', @JsonKey(name: 'original_title') this.originalTitle = '', this.overview = '', this.budget = 0, this.popularity = 0, this.revenue = 0, this.runtime = 0, @JsonKey(name: 'vote_average') this.voteAverage = 0, @JsonKey(name: 'vote_count') this.voteCount = 0, @JsonKey(name: 'poster_path') this.posterPath = '', @JsonKey(name: 'release_date') this.releaseDate = '', this.status = '', this.tagline = '', this.title = '', final  List<GenreModel>? genres, final  List<ProductionCompanyModel>? productionCompanies}): _genres = genres,_productionCompanies = productionCompanies;
+   _MovieDetailsModel({required this.id, this.adult = true, this.video = false, @JsonKey(name: 'backdrop_path') this.backdropPath = '', @JsonKey(name: 'homepage') this.homepage = '', @JsonKey(name: 'imdb_id') this.imdbId = '', @JsonKey(name: 'original_language') this.originalLanguage = '', @JsonKey(name: 'original_title') this.originalTitle = '', this.overview = '', this.budget = 0, this.popularity = 0, this.revenue = 0, this.runtime = 0, @JsonKey(name: 'vote_average') this.voteAverage = 0.0, @JsonKey(name: 'vote_count') this.voteCount = 0, @JsonKey(name: 'poster_path') this.posterPath = '', @JsonKey(name: 'release_date') this.releaseDate = '', this.status = '', this.tagline = '', this.title = '', final  List<GenreModel>? genres, final  List<ProductionCompanyModel>? productionCompanies}): _genres = genres,_productionCompanies = productionCompanies;
   factory _MovieDetailsModel.fromJson(Map<String, dynamic> json) => _$MovieDetailsModelFromJson(json);
 
 @override final  int id;
@@ -117,7 +117,7 @@ class _MovieDetailsModel implements MovieDetailsModel {
 @override@JsonKey() final  int popularity;
 @override@JsonKey() final  int revenue;
 @override@JsonKey() final  int runtime;
-@override@JsonKey(name: 'vote_average') final  int voteAverage;
+@override@JsonKey(name: 'vote_average') final  double voteAverage;
 @override@JsonKey(name: 'vote_count') final  int voteCount;
 @override@JsonKey(name: 'poster_path') final  String? posterPath;
 @override@JsonKey(name: 'release_date') final  String? releaseDate;
@@ -176,7 +176,7 @@ abstract mixin class _$MovieDetailsModelCopyWith<$Res> implements $MovieDetailsM
   factory _$MovieDetailsModelCopyWith(_MovieDetailsModel value, $Res Function(_MovieDetailsModel) _then) = __$MovieDetailsModelCopyWithImpl;
 @override @useResult
 $Res call({
- int id, bool adult, bool video,@JsonKey(name: 'backdrop_path') String? backdropPath,@JsonKey(name: 'homepage') String? homepage,@JsonKey(name: 'imdb_id') String? imdbId,@JsonKey(name: 'original_language') String? originalLanguage,@JsonKey(name: 'original_title') String? originalTitle, String? overview, int budget, int popularity, int revenue, int runtime,@JsonKey(name: 'vote_average') int voteAverage,@JsonKey(name: 'vote_count') int voteCount,@JsonKey(name: 'poster_path') String? posterPath,@JsonKey(name: 'release_date') String? releaseDate, String? status, String? tagline, String? title, List<GenreModel>? genres, List<ProductionCompanyModel>? productionCompanies
+ int id, bool adult, bool video,@JsonKey(name: 'backdrop_path') String? backdropPath,@JsonKey(name: 'homepage') String? homepage,@JsonKey(name: 'imdb_id') String? imdbId,@JsonKey(name: 'original_language') String? originalLanguage,@JsonKey(name: 'original_title') String? originalTitle, String? overview, int budget, int popularity, int revenue, int runtime,@JsonKey(name: 'vote_average') double voteAverage,@JsonKey(name: 'vote_count') int voteCount,@JsonKey(name: 'poster_path') String? posterPath,@JsonKey(name: 'release_date') String? releaseDate, String? status, String? tagline, String? title, List<GenreModel>? genres, List<ProductionCompanyModel>? productionCompanies
 });
 
 
@@ -209,7 +209,7 @@ as int,popularity: null == popularity ? _self.popularity : popularity // ignore:
 as int,revenue: null == revenue ? _self.revenue : revenue // ignore: cast_nullable_to_non_nullable
 as int,runtime: null == runtime ? _self.runtime : runtime // ignore: cast_nullable_to_non_nullable
 as int,voteAverage: null == voteAverage ? _self.voteAverage : voteAverage // ignore: cast_nullable_to_non_nullable
-as int,voteCount: null == voteCount ? _self.voteCount : voteCount // ignore: cast_nullable_to_non_nullable
+as double,voteCount: null == voteCount ? _self.voteCount : voteCount // ignore: cast_nullable_to_non_nullable
 as int,posterPath: freezed == posterPath ? _self.posterPath : posterPath // ignore: cast_nullable_to_non_nullable
 as String?,releaseDate: freezed == releaseDate ? _self.releaseDate : releaseDate // ignore: cast_nullable_to_non_nullable
 as String?,status: freezed == status ? _self.status : status // ignore: cast_nullable_to_non_nullable

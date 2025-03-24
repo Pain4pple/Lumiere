@@ -18,20 +18,6 @@ class MovieListScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // HighlightedMovie(imagePosterUrl: "", imageLogoUrl: "", videoUrl: "", description: ""),
-              // BlocProvider(create: (context) => sl<VideoBloc>()..add(FetchNowPlayingTrailers()), child: VideoCarousel()),
-              // BlocBuilder<VideoBloc, VideoState>(
-              //   builder: (context, state) {
-              //     if (state is VideoLoading) {
-              //       return const Center(child: CircularProgressIndicator());
-              //     } else if (state is VideoError) {
-              //       return Center(child: Icon(Icons.error));
-              //     } else if (state is VideoDone) {
-
-              //     }
-              //     return SizedBox();
-              //   },
-              // ),
               MovieCarousel(),
               const SizedBox(height: 10),
               BlocProvider(

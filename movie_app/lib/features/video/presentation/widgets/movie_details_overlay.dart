@@ -35,14 +35,8 @@ class MovieDetailsOverlay extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(movie.title, style: TextStyle(fontSize: 18, color: Colors.white, fontWeight: FontWeight.w600), textAlign: TextAlign.start),
-                Text(
-                  movie.overview,
-                  maxLines: 4,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 12, color: Colors.white),
-                  textAlign: TextAlign.start,
-                ),
+                Text(movie.title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600), textAlign: TextAlign.start),
+                Text(movie.overview, maxLines: 4, overflow: TextOverflow.ellipsis, style: TextStyle(fontSize: 12), textAlign: TextAlign.start),
               ],
             ),
           ),

@@ -24,7 +24,7 @@ abstract class MovieDetailsModel with _$MovieDetailsModel {
     @Default(0) int popularity,
     @Default(0) int revenue,
     @Default(0) int runtime,
-    @Default(0) @JsonKey(name: 'vote_average') int voteAverage,
+    @Default(0.0) @JsonKey(name: 'vote_average') double voteAverage,
     @Default(0) @JsonKey(name: 'vote_count') int voteCount,
     @Default('') @JsonKey(name: 'poster_path') String? posterPath,
     @Default('') @JsonKey(name: 'release_date') String? releaseDate,
