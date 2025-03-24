@@ -30,5 +30,5 @@ void initializeDependencies() {
 
   // Video Repository & Bloc
   sl.registerLazySingleton<VideoRepository>(() => VideoRepositoryImpl(sl<TmdbApiService>()));
-  sl.registerFactory(() => VideoBloc(sl<VideoRepository>()));
+  sl.registerFactory(() => VideoBloc(sl<VideoRepository>(), sl<MovieRepository>()));
 }

@@ -1,14 +1,15 @@
 import 'package:equatable/equatable.dart';
 import 'package:dio/dio.dart';
+import 'package:movie_app/features/video/domain/models/movie_with_trailer.dart';
 
 abstract class VideoState extends Equatable {
-  final List<String>? videoKeys;
+  final List<MovieWithTrailer>? moviesWithTrailers;
   final DioException? error;
 
-  const VideoState({this.videoKeys, this.error});
+  const VideoState({this.moviesWithTrailers, this.error});
 
   @override
-  List<Object> get props => [videoKeys!, error!];
+  List<Object> get props => [moviesWithTrailers!, error!];
 }
 
 //init state
@@ -21,7 +22,7 @@ class VideoLoading extends VideoState {
 
 //done loading
 class VideoDone extends VideoState {
-  const VideoDone(List<String> videoKeys) : super(videoKeys: videoKeys);
+  const VideoDone(List<MovieWithTrailer> moviesWithTrailers) : super(moviesWithTrailers: moviesWithTrailers);
 }
 
 //error

@@ -5,39 +5,15 @@ import 'package:dio/dio.dart';
 import 'package:movie_app/core/data/models/movie_list_model.dart';
 import 'package:movie_app/core/data/models/video_model.dart';
 import 'package:movie_app/core/data/services/tmdb_api_service.dart';
-import 'package:movie_app/core/domain/models/movie_list.dart';
 import 'package:movie_app/core/domain/models/video.dart';
 import 'package:movie_app/core/resources/data_state.dart';
+import 'package:movie_app/features/video/domain/models/movie_with_trailer.dart';
 import 'package:movie_app/features/video/domain/repository/video_repository.dart';
 
 class VideoRepositoryImpl implements VideoRepository {
   final TmdbApiService _tmdbApiService;
 
   VideoRepositoryImpl(this._tmdbApiService);
-
-  @override
-  Future<DataState<List<int>>> getNowPlayingMoviesId() async {
-    try {
-      final httpResponse = await _tmdbApiService.getNowPlayingMovies(apiKey: apiKey);
-      if (httpResponse.response.statusCode == HttpStatus.ok || httpResponse.response.statusCode == 200) {
-        final movies = toDomainResults(httpResponse.data);
-        return DataSuccess(movies.take(7).map((movie) => movie.id).toList());
-      } else {
-        return DataFailed(
-          DioException(
-            error: httpResponse.response.statusMessage,
-            response: httpResponse.response,
-            type: DioExceptionType.badResponse,
-            requestOptions: httpResponse.response.requestOptions,
-          ),
-        );
-      }
-    } on DioException catch (e, stackTrace) {
-      log("API Call Failed: $e");
-      log("Stack Trace: $stackTrace");
-      return DataFailed(e);
-    }
-  }
 
   @override
   Future<DataState<String?>> getVideoKey(int movieId) async {
@@ -66,23 +42,8 @@ class VideoRepositoryImpl implements VideoRepository {
   }
 
   //this conversion is specific for movie lists that returns "results" to encase individual movies
-  List<MovieEntity> toDomainResults(MovieListModel model) {
-    final movieEntity =
-        model.results
-            .map(
-              (e) => MovieEntity(
-                adult: e.adult,
-                video: e.video,
-                genreIds: e.genreIds,
-                id: e.id,
-                overview: e.overview,
-                posterPath: e.posterPath,
-                releaseDate: e.releaseDate,
-                title: e.title,
-                voteAverage: e.voteAverage,
-              ),
-            )
-            .toList();
+  List<MovieWithTrailer> toDomainResults(MovieListModel model) {
+    final movieEntity = model.results.map((e) => MovieWithTrailer(id: e.id, overview: e.overview, posterPath: e.posterPath, title: e.title)).toList();
     return movieEntity;
   }
 
