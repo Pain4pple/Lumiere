@@ -39,7 +39,7 @@ class _SearchResultsCardState extends State<SearchResultsCard> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(widget.movie.title, style: TextStyle(color: Colors.white, fontSize: 20), textAlign: TextAlign.center),
-                        Text('(No poster available)'),
+                        Text('(No poster available)', style: TextStyle(color: Colors.white, fontSize: 12)),
                       ],
                     ),
                   ),
