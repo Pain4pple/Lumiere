@@ -1,5 +1,6 @@
 import 'package:movie_app/core/data/models/movie_list_model.dart';
 import 'package:movie_app/core/data/models/video_model.dart';
+import 'package:movie_app/core/features/search/data/models/search_result_model.dart';
 import 'package:movie_app/core/utils/constants.dart';
 import 'package:movie_app/features/movie_details/data/models/movie_credits_model.dart';
 import 'package:movie_app/features/movie_details/data/models/movie_details_model.dart';
@@ -79,4 +80,8 @@ abstract class TmdbApiService {
   //get cast and their details
   @GET('/movie/{movie_id}/credits')
   Future<HttpResponse<MovieCreditsModel>> getMovieCredits(@Path('movie_id') int movieId, @Query('api_key') String apiKey);
+
+  //search based on keywords
+  @GET('/search/movie')
+  Future<HttpResponse<SearchResultModel>> searchKeyword(@Query('query') String keyword, @Query('api_key') String apiKey);
 }

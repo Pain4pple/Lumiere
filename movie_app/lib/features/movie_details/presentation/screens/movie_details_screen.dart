@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/core/di/injection_container.dart';
+import 'package:movie_app/core/presentation/widgets/app_bar.dart';
+import 'package:movie_app/core/presentation/widgets/drawer_column.dart';
 import 'package:movie_app/core/utils/constants.dart';
 import 'package:movie_app/features/movie_details/presentation/blocs/movie_details_bloc.dart';
 import 'package:movie_app/features/movie_details/presentation/blocs/movie_details_event.dart';
@@ -19,6 +21,8 @@ class MovieDetailsScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => sl<MovieDetailsBloc>()..add(FetchMovieDetails(movieId)),
       child: Scaffold(
+        appBar: CustomAppBar(),
+        drawer: Drawer(child: DrawerColumn()),
         body: SafeArea(
           child: BlocBuilder<MovieDetailsBloc, MovieDetailsState>(
             builder: (context, state) {
@@ -26,7 +30,6 @@ class MovieDetailsScreen extends StatelessWidget {
                 return const Center(child: CircularProgressIndicator());
               } else if (state is MovieDetailsDone) {
                 final movie = state.movie;
-                final movieCredit = state.cast;
                 return Stack(
                   children: [
                     //background
@@ -37,10 +40,7 @@ class MovieDetailsScreen extends StatelessWidget {
                       child: Column(
                         children: [
                           BackdropContainer(movie: movie),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                            child: TitleContainer(movie: movie, movieCredits: movieCredit!),
-                          ),
+                          Padding(padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10), child: TitleContainer()),
                         ],
                       ),
                     ),

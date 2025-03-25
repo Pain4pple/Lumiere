@@ -6,8 +6,6 @@ import 'package:movie_app/core/di/injection_container.dart';
 import 'package:movie_app/config/routes/app_router.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:movie_app/features/auth/presentation/blocs/auth_cubit.dart';
-import 'package:movie_app/features/auth/presentation/blocs/auth_state.dart';
-import 'package:movie_app/features/auth/presentation/screens/login_screen.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {

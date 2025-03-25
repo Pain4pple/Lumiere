@@ -42,3 +42,4 @@ flutter:
   assets:
     - .env
     - lib/assets/images/google_logo.png
+    - lib/assets/images/haerin_logo.png

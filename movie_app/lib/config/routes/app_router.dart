@@ -2,11 +2,13 @@ import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
+import 'package:movie_app/core/features/search/presentation/screens/search_results_screen.dart';
 import 'package:movie_app/features/auth/presentation/screens/login_screen.dart';
 import 'package:movie_app/features/auth/presentation/screens/signup_screen.dart';
 import 'package:movie_app/features/auth/presentation/screens/splash_screen.dart';
 import 'package:movie_app/features/movie_details/presentation/screens/movie_details_screen.dart';
 import 'package:movie_app/features/movie_list/presentation/screens/movie_list_screen.dart';
+import 'package:movie_app/features/settings/presentation/screens/settings_screen.dart';
 
 final GoRouter appRouter = GoRouter(
   routes: [
@@ -14,6 +16,14 @@ final GoRouter appRouter = GoRouter(
     GoRoute(path: '/login', builder: (context, state) => LoginScreen()),
     GoRoute(path: '/signup', builder: (context, state) => SignupScreen()),
     GoRoute(path: '/home', builder: (context, state) => MovieListScreen()),
+    GoRoute(path: '/settings', builder: (context, state) => SettingsScreen()),
+    GoRoute(
+      path: '/search/:keyword',
+      builder: (context, state) {
+        final keyword = state.pathParameters['keyword']!;
+        return SearchResultsScreen(keyword: keyword);
+      },
+    ),
     GoRoute(
       path: '/movie/:id',
       builder: (context, state) {

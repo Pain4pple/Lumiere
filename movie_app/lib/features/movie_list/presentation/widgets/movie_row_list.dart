@@ -13,10 +13,7 @@ class MovieRowList extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: Row(children: [Text(movieCategory), const Spacer(), TextButton(onPressed: () {}, child: Text("See All"))]),
-        ),
+        Padding(padding: const EdgeInsets.symmetric(horizontal: 8.0), child: Row(children: [Text(movieCategory), const Spacer()])),
         SizedBox(
           height: 250,
           child: BlocBuilder<MovieListsBloc, MovieListState>(

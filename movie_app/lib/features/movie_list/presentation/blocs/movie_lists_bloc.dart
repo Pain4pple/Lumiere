@@ -100,7 +100,7 @@ class MovieListsBloc extends Bloc<MovieListEvent, MovieListState> {
         final nowPlaying = await movieRepository.getNowPlayingMovies();
         final oscarWinning = await movieRepository.getOscarWinningMovies();
         final topRated = await movieRepository.getTopRatedMovies();
-        final filipinoMovies = await movieRepository.getCountryMovies();
+        final koreanMovies = await movieRepository.getCountryMovies();
         final classics = await movieRepository.getClassicMovies();
 
         emit(
@@ -108,7 +108,7 @@ class MovieListsBloc extends Bloc<MovieListEvent, MovieListState> {
             "Now Playing": nowPlaying is DataSuccess ? nowPlaying.data ?? [] : [],
             "Best Picture - The Academy Awards": oscarWinning is DataSuccess ? oscarWinning.data ?? [] : [],
             "Top Rated": topRated is DataSuccess ? topRated.data ?? [] : [],
-            "Filipino Movies": filipinoMovies is DataSuccess ? filipinoMovies.data ?? [] : [],
+            "Korean Movies": koreanMovies is DataSuccess ? koreanMovies.data ?? [] : [],
             "Classics": classics is DataSuccess ? classics.data ?? [] : [],
           }),
         );

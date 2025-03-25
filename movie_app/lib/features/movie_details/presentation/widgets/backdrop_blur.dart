@@ -11,7 +11,7 @@ class BackdropBlur extends StatelessWidget {
     return Stack(
       fit: StackFit.expand,
       children: [
-        Image.network(backdropUrl, fit: BoxFit.cover),
+        backdropUrl != '' ? Image.network(backdropUrl, fit: BoxFit.cover) : const SizedBox(),
         Positioned.fill(child: BackdropFilter(filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10), child: Container(color: Colors.black87))),
       ],
     );

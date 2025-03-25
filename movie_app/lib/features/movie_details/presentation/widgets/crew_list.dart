@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/core/utils/constants.dart';
 import 'package:movie_app/features/movie_details/domain/models/movie_credits.dart';
 
-class CastTile extends StatelessWidget {
-  const CastTile({super.key, required this.cast});
-  final Cast cast;
+class CrewTile extends StatelessWidget {
+  const CrewTile({super.key, required this.cast});
+  final Crew cast;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,7 +17,7 @@ class CastTile extends StatelessWidget {
             child: cast.profilePath.isEmpty ? const Icon(Icons.person, size: 30) : null,
           ),
           Text(cast.name, style: TextStyle(fontWeight: FontWeight.w700)),
-          Text(cast.character, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w300)),
+          Text(cast.job, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w300)),
         ],
       ),
     );

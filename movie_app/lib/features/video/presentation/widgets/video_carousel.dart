@@ -63,7 +63,7 @@ class _MovieCarouselState extends State<MovieCarousel> {
               child: CarouselSlider.builder(
                 carouselController: _carouselController,
                 options: CarouselOptions(
-                  height: 300,
+                  height: 250,
                   autoPlay: false,
                   enlargeCenterPage: false,
                   viewportFraction: 1.0,

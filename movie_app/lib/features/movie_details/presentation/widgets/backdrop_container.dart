@@ -14,11 +14,22 @@ class BackdropContainer extends StatelessWidget {
       child: Stack(
         fit: StackFit.expand,
         children: [
-          CachedNetworkImage(
-            imageUrl: "$tmdbBackdropImageBaseURL${movie.backdropPath}",
-            fit: BoxFit.cover,
-            placeholder: (context, url) => Center(child: SizedBox(width: 50, height: 50, child: CircularProgressIndicator.adaptive())),
-            errorWidget: (context, url, error) => Icon(Icons.error),
+          movie.backdropPath.isNotEmpty
+              ? CachedNetworkImage(
+                imageUrl: "$tmdbBackdropImageBaseURL${movie.backdropPath}",
+                fit: BoxFit.cover,
+                placeholder: (context, url) => Center(child: SizedBox(width: 50, height: 50, child: CircularProgressIndicator.adaptive())),
+                errorWidget: (context, url, error) => Icon(Icons.error),
+              )
+              : Container(color: const Color.fromARGB(255, 181, 181, 181), child: Icon(Icons.error)),
+          Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: [const Color.fromARGB(0, 0, 0, 0), const Color.fromARGB(154, 0, 0, 0)],
+              ),
+            ),
           ),
         ],
       ),

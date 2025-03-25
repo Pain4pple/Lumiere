@@ -25,9 +25,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          icon: const Icon(Icons.search, color: Colors.white),
+          icon: const Icon(Icons.keyboard_return, color: Colors.white),
           onPressed: () {
-            context.go('/search/popular');
+            context.go('/home');
           },
         ),
       ],

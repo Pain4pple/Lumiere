@@ -1,54 +1,22 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:movie_app/core/domain/models/movie_list.dart';
+import 'package:movie_app/core/features/search/domain/models/search_result_model.dart';
 import 'package:movie_app/core/utils/constants.dart';
 import 'package:movie_app/features/movie_details/presentation/screens/movie_details_screen.dart';
 
-class MovieCard extends StatefulWidget {
-  const MovieCard({super.key, required this.movie});
+class SearchResultsCard extends StatefulWidget {
+  const SearchResultsCard({super.key, required this.movie});
 
-  final MovieEntity movie;
+  final SearchMovieEntity movie;
 
   @override
-  State<MovieCard> createState() => _MovieCardState();
+  State<SearchResultsCard> createState() => _SearchResultsCardState();
 }
 
-class _MovieCardState extends State<MovieCard> {
-  OverlayEntry? _overlayEntry;
-
-  void _showOverlay(BuildContext context) {
-    final overlay = Overlay.of(context);
-
-    _overlayEntry = OverlayEntry(
-      builder:
-          (context) => Positioned(
-            bottom: 20,
-            left: 20,
-            right: 20,
-            child: Material(
-              color: Colors.black54,
-              borderRadius: BorderRadius.circular(8),
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Text(widget.movie.title, style: const TextStyle(color: Colors.white, fontSize: 16), textAlign: TextAlign.center),
-              ),
-            ),
-          ),
-    );
-
-    overlay.insert(_overlayEntry!);
-  }
-
-  void _removeOverlay() {
-    _overlayEntry?.remove();
-    _overlayEntry = null;
-  }
-
+class _SearchResultsCardState extends State<SearchResultsCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onLongPress: () => _showOverlay(context),
-      onLongPressEnd: (_) => _removeOverlay(),
       onTap: () {
         Navigator.push(context, MaterialPageRoute(builder: (context) => MovieDetailsScreen(movieId: widget.movie.id)));
       },
