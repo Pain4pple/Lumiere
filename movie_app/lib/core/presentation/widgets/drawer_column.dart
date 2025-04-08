@@ -15,8 +15,8 @@ class DrawerColumn extends StatelessWidget {
           leading: Icon(Icons.logout),
           title: Text("Logout"),
           onTap: () {
-            context.read<AuthCubit>().logout();
             context.replace('/login');
+            context.read<AuthCubit>().logout();
           },
         ),
         ListTile(
